@@ -7,6 +7,7 @@
 import { useNavigate } from 'react-router-dom';
 import { ProgressBar } from '../components/ProgressBar';
 import { RoomCard } from '../components/RoomCard';
+import Shuffle from '../components/Shuffle';
 import './Home.css';
 
 // Room data with titles
@@ -29,9 +30,18 @@ export const Home = () => {
   return (
     <div className="home-page">
       <div className="home-header">
-        <h1 className="home-title">
-          <span className="glitch-text" data-text="BYTEQUEST">BYTEQUEST</span>
-        </h1>
+        <Shuffle
+          text="BYTEQUEST"
+          tag="h1"
+          className="home-title shuffle-title"
+          shuffleDirection="right"
+          duration={0.4}
+          stagger={0.05}
+          colorFrom="#00ff41"
+          colorTo="#00ff41"
+          triggerOnce={true}
+          triggerOnHover={true}
+        />
         <p className="home-subtitle">DECODE THE FRAGMENTS. UNLOCK THE PORTAL.</p>
       </div>
 

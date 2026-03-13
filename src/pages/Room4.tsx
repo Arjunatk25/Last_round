@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { setFragment, isRoomSolved } from '../utils/puzzleState';
 import { logHintsToConsole, getExternalHint } from '../hints/hints';
 import './Room4.css';
+import { ScrollReveal } from '../components';
 
 export const Room4 = () => {
   const navigate = useNavigate();
@@ -116,9 +117,16 @@ export const Room4 = () => {
             </button>
           </form>
         </div>
+        <ScrollReveal
+  baseOpacity={0.1}
+  enableBlur
+  baseRotation={3}
+  blurStrength={4}
+>
         <div className="room-footer">
           <p className="footer-hint">Hint for Room 8: Binary strings can be converted to ASCII</p>
         </div>
+        </ScrollReveal>
       </div>
     </div>
   );

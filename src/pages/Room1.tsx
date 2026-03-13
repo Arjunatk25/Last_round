@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { setFragment, isRoomSolved } from '../utils/puzzleState';
 import { logHintsToConsole, getExternalHint } from '../hints/hints';
+import ScrollReveal from '../components/ScrollReveal';
 import './Room1.css';
 
 export const Room1 = () => {
@@ -105,6 +106,26 @@ export const Room1 = () => {
             />
           </form>
         </div>
+      </div>
+      
+      {/* Scroll-reveal hints section */}
+      <div className="hints-section">
+        <ScrollReveal 
+          containerClassName="hint-reveal"
+          textClassName="hint-text"
+          baseOpacity={0.05}
+          blurStrength={6}
+        >
+          Hint: Try common system commands
+        </ScrollReveal>
+        <ScrollReveal 
+          containerClassName="hint-reveal"
+          textClassName="hint-text"
+          baseOpacity={0.05}
+          blurStrength={6}
+        >
+          Hint: Think about listing directory contents
+        </ScrollReveal>
       </div>
     </div>
   );

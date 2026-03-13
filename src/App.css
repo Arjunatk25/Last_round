@@ -3,10 +3,14 @@
 .app-container {
   min-height: 100vh;
   padding: var(--spacing-md);
+  position: relative;
+  overflow-x: hidden;
 }
 
 .page-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: var(--spacing-lg);
+  position: relative;
+  z-index: 1;
 }

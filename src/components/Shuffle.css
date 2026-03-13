@@ -1,0 +1,19 @@
+.shuffle-parent {
+  display: inline-block;
+  position: relative;
+}
+
+.shuffle-char {
+  display: inline-block;
+  position: relative;
+}
+
+.shuffle-word {
+  display: inline-block;
+  position: relative;
+}
+
+.shuffle-line {
+  display: block;
+  position: relative;
+}

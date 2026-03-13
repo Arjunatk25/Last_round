@@ -21,6 +21,11 @@
   display: inline-block;
 }
 
+.shuffle-title {
+  color: var(--color-primary);
+  text-shadow: 0 0 10px var(--color-primary), 0 0 20px var(--color-primary), 0 0 30px var(--color-primary);
+}
+
 /* Glitch Effect for Title */
 .glitch-text {
   position: relative;

@@ -6,8 +6,9 @@
 .room1-page {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 2rem;
   background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 100%);
 }
@@ -20,6 +21,7 @@
   border-radius: 8px;
   box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
   overflow: hidden;
+  margin-bottom: 3rem;
 }
 
 .terminal-header {
@@ -154,6 +156,33 @@
   background: rgba(0, 255, 65, 0.05);
 }
 
+/* Hints section with scroll reveal */
+.hints-section {
+  width: 100%;
+  max-width: 800px;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.hint-reveal {
+  padding: 2rem;
+  background: rgba(0, 255, 65, 0.05);
+  border-left: 3px solid var(--primary-color, #00ff41);
+  border-radius: 4px;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.hint-text {
+  color: var(--secondary-color, #00d4ff);
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .room1-page {
@@ -162,6 +191,7 @@
 
   .terminal-container {
     max-width: 100%;
+    margin-bottom: 2rem;
   }
 
   .terminal-header {
@@ -180,5 +210,19 @@
 
   .terminal-line {
     font-size: 0.9rem;
+  }
+
+  .hints-section {
+    max-width: 100%;
+    gap: 2rem;
+  }
+
+  .hint-reveal {
+    padding: 1.5rem;
+    min-height: 60px;
+  }
+
+  .hint-text {
+    font-size: 1rem;
   }
 }

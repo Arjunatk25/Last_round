@@ -1,0 +1,186 @@
+/* RoomCard Component Styles - Dark Hacker Theme */
+
+.room-card {
+  background-color: rgba(0, 255, 65, 0.05);
+  border: 2px solid var(--color-primary);
+  border-radius: 8px;
+  padding: var(--spacing-md);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Hover Effects */
+.room-card:hover {
+  background-color: rgba(0, 255, 65, 0.1);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 20px rgba(131, 56, 236, 0.5), 0 0 40px rgba(131, 56, 236, 0.3), inset 0 0 10px rgba(0, 255, 65, 0.1);
+  transform: translateY(-5px) scale(1.02);
+}
+
+.room-card:active {
+  transform: translateY(-2px) scale(1.01);
+}
+
+/* Glow animation on hover */
+.room-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    45deg,
+    var(--color-primary),
+    var(--color-accent),
+    var(--color-secondary),
+    var(--color-primary)
+  );
+  border-radius: 8px;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity var(--transition-normal);
+  background-size: 400% 400%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+.room-card:hover::before {
+  opacity: 0.3;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Header Section */
+.room-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.room-number {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  color: var(--color-primary);
+  letter-spacing: 2px;
+  font-weight: bold;
+  text-shadow: 0 0 5px var(--color-primary);
+}
+
+.solved-indicator {
+  font-size: 1.5rem;
+  color: var(--color-success);
+  font-weight: bold;
+  text-shadow: 0 0 10px var(--color-success);
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 10px var(--color-success), 0 0 15px var(--color-success);
+  }
+  50% {
+    opacity: 0.7;
+    text-shadow: 0 0 20px var(--color-success), 0 0 30px var(--color-success), 0 0 40px var(--color-success);
+  }
+}
+
+/* Title */
+.room-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--color-text);
+  margin: var(--spacing-sm) 0;
+  transition: color var(--transition-fast);
+}
+
+.room-card:hover .room-title {
+  color: var(--color-primary);
+  text-shadow: 0 0 8px var(--color-primary);
+}
+
+/* Footer Section */
+.room-card-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: auto;
+}
+
+.enter-text {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  color: var(--color-accent);
+  letter-spacing: 1px;
+  transition: all var(--transition-fast);
+}
+
+.room-card:hover .enter-text {
+  color: var(--color-primary);
+  text-shadow: 0 0 5px var(--color-primary);
+  transform: translateX(5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .room-card {
+    padding: var(--spacing-sm);
+    min-height: 130px;
+  }
+
+  .room-number {
+    font-size: 0.75rem;
+  }
+
+  .room-title {
+    font-size: 1rem;
+  }
+
+  .solved-indicator {
+    font-size: 1.3rem;
+  }
+
+  .enter-text {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .room-card {
+    padding: var(--spacing-xs);
+    min-height: 110px;
+  }
+
+  .room-number {
+    font-size: 0.7rem;
+  }
+
+  .room-title {
+    font-size: 0.9rem;
+  }
+
+  .solved-indicator {
+    font-size: 1.2rem;
+  }
+
+  .enter-text {
+    font-size: 0.75rem;
+  }
+}

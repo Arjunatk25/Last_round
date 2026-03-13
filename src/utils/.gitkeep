@@ -1,0 +1,5 @@
+# Utils Directory
+This directory contains utility functions:
+- Puzzle state management
+- Master key composition
+- State persistence logic

@@ -1,0 +1,224 @@
+/**
+ * Room 5 - Fake Offline Puzzle Styles
+ * Styled to look like a genuine "No Internet Connection" error page
+ */
+
+.room5-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 100%);
+}
+
+.offline-container {
+  width: 100%;
+  max-width: 600px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 3rem 2rem;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.offline-icon {
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  opacity: 0.6;
+}
+
+.offline-title {
+  font-family: 'Courier New', monospace;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.offline-message {
+  font-family: 'Courier New', monospace;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.offline-code {
+  font-family: 'Courier New', monospace;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.back-button-offline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0.8rem 1.5rem;
+  font-family: 'Courier New', monospace;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.back-button-offline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Hidden clickable area - invisible div positioned strategically */
+.hidden-clickable-area {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 10;
+}
+
+.hidden-clickable-area:hover {
+  /* Subtle hint on hover - barely visible */
+  background: rgba(0, 255, 65, 0.02);
+  border-radius: 50%;
+}
+
+/* Gate revealed state */
+.offline-container.gate-revealed {
+  border-color: var(--primary-color, #00ff41);
+  box-shadow: 0 0 40px rgba(0, 255, 65, 0.4);
+  animation: gateReveal 0.8s ease-out;
+}
+
+@keyframes gateReveal {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.gate-animation {
+  position: relative;
+  padding: 2rem;
+}
+
+.gate-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(0, 255, 65, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+.gate-content {
+  position: relative;
+  z-index: 1;
+}
+
+.success-message {
+  font-family: 'Courier New', monospace;
+  color: var(--primary-color, #00ff41);
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 1rem 0;
+  text-shadow: 0 0 15px var(--primary-color, #00ff41);
+  animation: fadeInScale 0.6s ease-out;
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fragment-message {
+  font-family: 'Courier New', monospace;
+  color: var(--secondary-color, #00d4ff);
+  font-size: 1.3rem;
+  margin: 1rem 0;
+  animation: fadeInScale 0.6s ease-out 0.2s both;
+}
+
+.return-message {
+  font-family: 'Courier New', monospace;
+  color: var(--text-color, #00ff41);
+  font-size: 1rem;
+  margin: 1rem 0;
+  opacity: 0.7;
+  animation: fadeInScale 0.6s ease-out 0.4s both;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .room5-page {
+    padding: 1rem;
+  }
+
+  .offline-container {
+    max-width: 100%;
+    padding: 2rem 1.5rem;
+  }
+
+  .offline-title {
+    font-size: 1.5rem;
+  }
+
+  .offline-message {
+    font-size: 1rem;
+  }
+
+  .offline-code {
+    font-size: 0.8rem;
+  }
+
+  .hidden-clickable-area {
+    width: 120px;
+    height: 120px;
+  }
+
+  .success-message {
+    font-size: 1.4rem;
+  }
+
+  .fragment-message {
+    font-size: 1.1rem;
+  }
+}

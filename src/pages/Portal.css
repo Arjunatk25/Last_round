@@ -1,0 +1,632 @@
+/* Portal Page Styles - Victory Screen */
+
+.portal-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-background);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Grid background animation */
+.portal-grid-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(0deg, transparent 24%, rgba(0, 255, 65, 0.05) 25%, rgba(0, 255, 65, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 255, 65, 0.05) 75%, rgba(0, 255, 65, 0.05) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, rgba(0, 255, 65, 0.05) 25%, rgba(0, 255, 65, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 255, 65, 0.05) 75%, rgba(0, 255, 65, 0.05) 76%, transparent 77%, transparent);
+  background-size: 50px 50px;
+  animation: grid-move 20s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes grid-move {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(50px);
+  }
+}
+
+/* Main portal container */
+.portal-container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  text-align: center;
+}
+
+/* Glowing portal effect - outer ring */
+.portal-glow-outer {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: portal-pulse-outer 4s ease-in-out infinite;
+}
+
+@keyframes portal-pulse-outer {
+  0%, 100% {
+    box-shadow: 0 0 30px var(--color-primary), 0 0 60px var(--color-primary);
+  }
+  50% {
+    box-shadow: 0 0 50px var(--color-primary), 0 0 100px var(--color-primary), 0 0 150px var(--color-accent);
+  }
+}
+
+/* Glowing portal effect - middle ring */
+.portal-glow-middle {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  border: 2px solid var(--color-secondary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: portal-rotate-middle 8s linear infinite;
+  box-shadow: inset 0 0 20px rgba(255, 0, 110, 0.3), 0 0 20px var(--color-secondary);
+}
+
+@keyframes portal-rotate-middle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Glowing portal effect - inner ring */
+.portal-glow-inner {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 2px solid var(--color-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: portal-rotate-inner 6s linear infinite reverse;
+  box-shadow: inset 0 0 20px rgba(131, 56, 236, 0.3), 0 0 20px var(--color-accent);
+}
+
+@keyframes portal-rotate-inner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Portal core with rotating rings */
+.portal-core {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portal-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid;
+  animation: portal-ring-spin 4s linear infinite;
+}
+
+.portal-ring-1 {
+  width: 140px;
+  height: 140px;
+  border-color: var(--color-primary);
+  animation-duration: 4s;
+  box-shadow: 0 0 15px var(--color-primary);
+}
+
+.portal-ring-2 {
+  width: 100px;
+  height: 100px;
+  border-color: var(--color-secondary);
+  animation-duration: 6s;
+  animation-direction: reverse;
+  box-shadow: 0 0 15px var(--color-secondary);
+}
+
+.portal-ring-3 {
+  width: 60px;
+  height: 60px;
+  border-color: var(--color-accent);
+  animation-duration: 8s;
+  box-shadow: 0 0 15px var(--color-accent);
+}
+
+@keyframes portal-ring-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Victory message */
+.victory-message {
+  position: relative;
+  z-index: 20;
+  animation: fade-in-up 1s ease-out;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.victory-title {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-md);
+  position: relative;
+  display: inline-block;
+}
+
+/* Glitch effect for victory title */
+.glitch-text {
+  position: relative;
+  display: inline-block;
+  color: var(--color-primary);
+  text-shadow:
+    0 0 10px var(--color-primary),
+    0 0 20px var(--color-primary),
+    0 0 30px var(--color-primary);
+  animation: glitch-animation 5s infinite;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.glitch-text::before {
+  color: var(--color-secondary);
+  animation: glitch-before 3s infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+
+.glitch-text::after {
+  color: var(--color-accent);
+  animation: glitch-after 2.5s infinite;
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+}
+
+@keyframes glitch-animation {
+  0%, 90%, 100% {
+    transform: translate(0);
+  }
+  91% {
+    transform: translate(-2px, 2px);
+  }
+  92% {
+    transform: translate(2px, -2px);
+  }
+  93% {
+    transform: translate(-2px, 2px);
+  }
+  94% {
+    transform: translate(2px, -2px);
+  }
+  95% {
+    transform: translate(0);
+  }
+}
+
+@keyframes glitch-before {
+  0%, 95%, 100% {
+    transform: translate(0);
+  }
+  96% {
+    transform: translate(-3px, 0);
+  }
+  97% {
+    transform: translate(3px, 0);
+  }
+  98% {
+    transform: translate(-3px, 0);
+  }
+}
+
+@keyframes glitch-after {
+  0%, 93%, 100% {
+    transform: translate(0);
+  }
+  94% {
+    transform: translate(3px, 0);
+  }
+  95% {
+    transform: translate(-3px, 0);
+  }
+  96% {
+    transform: translate(3px, 0);
+  }
+}
+
+.victory-subtitle {
+  font-size: 2rem;
+  color: var(--color-accent);
+  letter-spacing: 3px;
+  text-shadow: 0 0 10px var(--color-accent);
+  animation: pulse 2s infinite;
+}
+
+/* Treasure elements - One Piece themed */
+.treasure-elements {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  animation: fade-in-up 1.2s ease-out;
+}
+
+.treasure-icon {
+  font-size: 3rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.treasure-icon:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.treasure-text {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: var(--color-secondary);
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px var(--color-secondary);
+  animation: pulse 2s infinite;
+}
+
+/* Portal particles */
+.portal-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  animation: particle-float 6s ease-in infinite;
+  opacity: 0.6;
+  box-shadow: 0 0 10px var(--color-primary);
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(var(--tx, 100px), var(--ty, -100px)) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Distribute particles randomly */
+.particle:nth-child(1) { left: 50%; top: 50%; --tx: 150px; --ty: -150px; animation-delay: var(--delay); }
+.particle:nth-child(2) { left: 50%; top: 50%; --tx: -150px; --ty: -150px; animation-delay: var(--delay); }
+.particle:nth-child(3) { left: 50%; top: 50%; --tx: 150px; --ty: 150px; animation-delay: var(--delay); }
+.particle:nth-child(4) { left: 50%; top: 50%; --tx: -150px; --ty: 150px; animation-delay: var(--delay); }
+.particle:nth-child(5) { left: 50%; top: 50%; --tx: 200px; --ty: 0; animation-delay: var(--delay); }
+.particle:nth-child(6) { left: 50%; top: 50%; --tx: -200px; --ty: 0; animation-delay: var(--delay); }
+.particle:nth-child(7) { left: 50%; top: 50%; --tx: 0; --ty: -200px; animation-delay: var(--delay); }
+.particle:nth-child(8) { left: 50%; top: 50%; --tx: 0; --ty: 200px; animation-delay: var(--delay); }
+.particle:nth-child(9) { left: 50%; top: 50%; --tx: 120px; --ty: -120px; animation-delay: var(--delay); }
+.particle:nth-child(10) { left: 50%; top: 50%; --tx: -120px; --ty: -120px; animation-delay: var(--delay); }
+.particle:nth-child(11) { left: 50%; top: 50%; --tx: 120px; --ty: 120px; animation-delay: var(--delay); }
+.particle:nth-child(12) { left: 50%; top: 50%; --tx: -120px; --ty: 120px; animation-delay: var(--delay); }
+.particle:nth-child(13) { left: 50%; top: 50%; --tx: 180px; --ty: -80px; animation-delay: var(--delay); }
+.particle:nth-child(14) { left: 50%; top: 50%; --tx: -180px; --ty: -80px; animation-delay: var(--delay); }
+.particle:nth-child(15) { left: 50%; top: 50%; --tx: 180px; --ty: 80px; animation-delay: var(--delay); }
+.particle:nth-child(16) { left: 50%; top: 50%; --tx: -180px; --ty: 80px; animation-delay: var(--delay); }
+.particle:nth-child(17) { left: 50%; top: 50%; --tx: 80px; --ty: -180px; animation-delay: var(--delay); }
+.particle:nth-child(18) { left: 50%; top: 50%; --tx: -80px; --ty: -180px; animation-delay: var(--delay); }
+.particle:nth-child(19) { left: 50%; top: 50%; --tx: 80px; --ty: 180px; animation-delay: var(--delay); }
+.particle:nth-child(20) { left: 50%; top: 50%; --tx: -80px; --ty: 180px; animation-delay: var(--delay); }
+
+/* Portal action buttons */
+.portal-actions {
+  display: flex;
+  gap: var(--spacing-lg);
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fade-in-up 1.4s ease-out;
+}
+
+.portal-button {
+  background-color: transparent;
+  border: 2px solid;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  font-family: var(--font-primary);
+  font-weight: bold;
+}
+
+.home-button {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.home-button:hover {
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  box-shadow: 0 0 20px var(--color-primary);
+  transform: translateY(-3px);
+}
+
+.reset-button {
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+.reset-button:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-background);
+  box-shadow: 0 0 20px var(--color-secondary);
+  transform: translateY(-3px);
+}
+
+.portal-button:active {
+  transform: translateY(0);
+}
+
+/* Portal footer message */
+.portal-footer {
+  animation: fade-in-up 1.6s ease-out;
+  margin-top: var(--spacing-lg);
+}
+
+.portal-message {
+  font-family: var(--font-code);
+  font-size: 0.95rem;
+  color: var(--color-accent);
+  letter-spacing: 1px;
+  margin-bottom: var(--spacing-sm);
+  text-shadow: 0 0 5px var(--color-accent);
+  animation: blink-slow 3s infinite;
+}
+
+.portal-message:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+@keyframes blink-slow {
+  0%, 49%, 100% {
+    opacity: 0.8;
+  }
+  50%, 99% {
+    opacity: 0.3;
+  }
+}
+
+/* Atmospheric glow effect */
+.atmosphere-glow {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 255, 65, 0.1) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: glow-pulse 4s ease-in-out infinite;
+  z-index: 5;
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .portal-glow-outer {
+    width: 250px;
+    height: 250px;
+  }
+
+  .portal-glow-middle {
+    width: 200px;
+    height: 200px;
+  }
+
+  .portal-glow-inner {
+    width: 150px;
+    height: 150px;
+  }
+
+  .portal-core {
+    width: 120px;
+    height: 120px;
+  }
+
+  .portal-ring-1 {
+    width: 110px;
+    height: 110px;
+  }
+
+  .portal-ring-2 {
+    width: 80px;
+    height: 80px;
+  }
+
+  .portal-ring-3 {
+    width: 50px;
+    height: 50px;
+  }
+
+  .victory-title {
+    font-size: 2.5rem;
+  }
+
+  .victory-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .treasure-icon {
+    font-size: 2.5rem;
+  }
+
+  .treasure-text {
+    font-size: 1.1rem;
+  }
+
+  .portal-actions {
+    gap: var(--spacing-md);
+  }
+
+  .portal-button {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: 0.9rem;
+  }
+
+  .portal-message {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .portal-container {
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md);
+  }
+
+  .portal-glow-outer {
+    width: 200px;
+    height: 200px;
+  }
+
+  .portal-glow-middle {
+    width: 160px;
+    height: 160px;
+  }
+
+  .portal-glow-inner {
+    width: 120px;
+    height: 120px;
+  }
+
+  .portal-core {
+    width: 100px;
+    height: 100px;
+  }
+
+  .portal-ring-1 {
+    width: 90px;
+    height: 90px;
+  }
+
+  .portal-ring-2 {
+    width: 60px;
+    height: 60px;
+  }
+
+  .portal-ring-3 {
+    width: 40px;
+    height: 40px;
+  }
+
+  .victory-title {
+    font-size: 2rem;
+  }
+
+  .victory-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .treasure-icon {
+    font-size: 2rem;
+  }
+
+  .treasure-text {
+    font-size: 1rem;
+  }
+
+  .treasure-elements {
+    gap: var(--spacing-md);
+  }
+
+  .portal-actions {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .portal-button {
+    width: 100%;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.85rem;
+  }
+
+  .portal-message {
+    font-size: 0.8rem;
+  }
+
+  .atmosphere-glow {
+    width: 400px;
+    height: 400px;
+  }
+}

@@ -1,0 +1,12 @@
+/* App-specific styles */
+
+.app-container {
+  min-height: 100vh;
+  padding: var(--spacing-md);
+}
+
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+}

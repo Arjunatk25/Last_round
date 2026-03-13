@@ -1,0 +1,239 @@
+/**
+ * Room 7 - Image Puzzle Styles
+ * Dark hacker theme with image display aesthetics
+ */
+
+.room7-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 100%);
+}
+
+.image-container {
+  width: 100%;
+  max-width: 900px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid var(--primary-color, #00ff41);
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
+  overflow: hidden;
+}
+
+.image-header {
+  background: rgba(0, 255, 65, 0.1);
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--primary-color, #00ff41);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.image-title {
+  font-family: 'Courier New', monospace;
+  color: var(--primary-color, #00ff41);
+  font-size: 1.1rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.back-button {
+  background: transparent;
+  border: 1px solid var(--primary-color, #00ff41);
+  color: var(--primary-color, #00ff41);
+  padding: 0.5rem 1rem;
+  font-family: 'Courier New', monospace;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.back-button:hover {
+  background: var(--primary-color, #00ff41);
+  color: #000;
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+}
+
+.image-body {
+  padding: 2rem;
+  min-height: 400px;
+}
+
+.image-output {
+  margin-bottom: 2rem;
+}
+
+.image-instruction {
+  font-family: 'Courier New', monospace;
+  color: var(--secondary-color, #00d4ff);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.image-display {
+  background: rgba(0, 255, 65, 0.05);
+  border: 1px solid rgba(0, 255, 65, 0.3);
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.puzzle-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 300px;
+  border-radius: 4px;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 65, 0.3));
+  transition: filter 0.3s ease;
+}
+
+.puzzle-image:hover {
+  filter: drop-shadow(0 0 20px rgba(0, 255, 65, 0.6));
+}
+
+.error-message {
+  font-family: 'Courier New', monospace;
+  color: #ff0040;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 1rem 0;
+  animation: blink 0.5s ease-in-out 3;
+  text-shadow: 0 0 10px #ff0040;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.success-message {
+  font-family: 'Courier New', monospace;
+  color: var(--primary-color, #00ff41);
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1rem 0;
+  text-shadow: 0 0 15px var(--primary-color, #00ff41);
+}
+
+.fragment-message {
+  font-family: 'Courier New', monospace;
+  color: var(--secondary-color, #00d4ff);
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+.return-message {
+  font-family: 'Courier New', monospace;
+  color: var(--text-color, #00ff41);
+  font-size: 1rem;
+  margin: 1rem 0;
+  opacity: 0.7;
+}
+
+.answer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.answer-input {
+  background: rgba(0, 255, 65, 0.05);
+  border: 1px solid rgba(0, 255, 65, 0.3);
+  border-radius: 4px;
+  padding: 1rem;
+  font-family: 'Courier New', monospace;
+  color: var(--text-color, #00ff41);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.answer-input:focus {
+  outline: none;
+  border-color: var(--primary-color, #00ff41);
+  background: rgba(0, 255, 65, 0.1);
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+}
+
+.answer-input::placeholder {
+  color: rgba(0, 255, 65, 0.5);
+}
+
+.submit-button {
+  background: transparent;
+  border: 2px solid var(--primary-color, #00ff41);
+  color: var(--primary-color, #00ff41);
+  padding: 1rem 2rem;
+  font-family: 'Courier New', monospace;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  letter-spacing: 1px;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: var(--primary-color, #00ff41);
+  color: #000;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+}
+
+.submit-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .room7-page {
+    padding: 1rem;
+  }
+
+  .image-container {
+    max-width: 100%;
+  }
+
+  .image-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .image-title {
+    font-size: 0.9rem;
+  }
+
+  .image-body {
+    padding: 1rem;
+  }
+
+  .image-instruction {
+    font-size: 1rem;
+  }
+
+  .image-display {
+    padding: 1rem;
+    min-height: 200px;
+  }
+
+  .puzzle-image {
+    max-height: 200px;
+  }
+
+  .answer-input {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+
+  .submit-button {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+}

@@ -276,6 +276,34 @@
   animation: pulse 1s infinite;
 }
 
+.pennywise-button {
+  display: inline-block;
+  background-color: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  padding: var(--spacing-sm) var(--spacing-md);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  font-family: var(--font-primary);
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: var(--spacing-md);
+}
+
+.pennywise-button:hover {
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  box-shadow: 0 0 20px var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.pennywise-button:active {
+  transform: translateY(0);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .master-key-page {

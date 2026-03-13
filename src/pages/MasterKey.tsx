@@ -28,14 +28,9 @@ export const MasterKey = () => {
 
     // Validate master key against concatenated fragments
     if (validateMasterKey(masterKey.trim())) {
-      // Navigate to Portal on correct key
+      // Show success message without navigation
       setSolved(true);
       setError('');
-      
-      // Navigate to portal after a short delay
-      setTimeout(() => {
-        navigate('/portal');
-      }, 1500);
     } else {
       // Display error message for incorrect keys
       setError('INVALID KEY - ACCESS DENIED');
@@ -56,7 +51,14 @@ export const MasterKey = () => {
           <div className="master-key-body">
             <div className="success-message">
               <p className="success-text">KEY ACCEPTED</p>
-              <p className="portal-message">Opening portal...</p>
+              <a 
+                href="https://last-round-1-1.vercel.app/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="pennywise-button"
+              >
+                MEET PENNYWISE
+              </a>
             </div>
           </div>
         </div>
